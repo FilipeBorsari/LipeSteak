@@ -551,9 +551,6 @@ function Step5({
       )}
     </div>
   );
-}     )}
-    </div>
-  );
 }
 
 function Step6({
