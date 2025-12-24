@@ -1,0 +1,9 @@
+<svg width="1200" height="900" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#F2F0EB"/>
+  <text x="600" y="430" font-family="Arial, sans-serif" font-size="36" fill="#0F0F0F" text-anchor="middle" font-weight="bold">
+    LIPE - FUNDADOR
+  </text>
+  <text x="600" y="480" font-family="Arial, sans-serif" font-size="20" fill="#B89B5E" text-anchor="middle">
+    Substitua por foto real
+  </text>
+</svg>

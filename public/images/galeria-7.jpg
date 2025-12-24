@@ -1,0 +1,9 @@
+<svg width="600" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="600" fill="#F2F0EB"/>
+  <text x="300" y="290" font-family="Arial, sans-serif" font-size="28" fill="#0F0F0F" text-anchor="middle" font-weight="bold">
+    GALERIA 7
+  </text>
+  <text x="300" y="330" font-family="Arial, sans-serif" font-size="16" fill="#B89B5E" text-anchor="middle">
+    Perspectiva evento
+  </text>
+</svg>

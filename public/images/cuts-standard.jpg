@@ -1,0 +1,12 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#F2F0EB"/>
+  <text x="400" y="280" font-family="Arial, sans-serif" font-size="32" fill="#0F0F0F" text-anchor="middle" font-weight="bold">
+    CORTES STANDARD
+  </text>
+  <text x="400" y="320" font-family="Arial, sans-serif" font-size="18" fill="#B89B5E" text-anchor="middle">
+    Fraldinha • Costela • Linguiça
+  </text>
+  <text x="400" y="360" font-family="Arial, sans-serif" font-size="14" fill="#666" text-anchor="middle">
+    Substitua por foto real em /public/images/
+  </text>
+</svg>
