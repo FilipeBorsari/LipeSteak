@@ -24,6 +24,16 @@ export function generateWhatsAppMessage(data: WizardFormData, estimativa: string
     }
   }
   message += `• Ponto preferencial: ${pontoCarne}\n`;
+  
+  // Complementos
+  const complementosAtivos = [];
+  if (data.complementos.paoAlho) complementosAtivos.push('Pão de Alho');
+  if (data.complementos.queijoCoalho) complementosAtivos.push('Queijo Coalho');
+  if (data.complementos.linguicaApimentada) complementosAtivos.push('Linguiça Apimentada');
+  
+  if (complementosAtivos.length > 0) {
+    message += `• Complementos: ${complementosAtivos.join(', ')}\n`;
+  }
   message += `\n`;
   
   const extrasAtivos = [];

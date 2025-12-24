@@ -34,6 +34,13 @@ export interface CustomCutItem {
   unit: 'kg' | 'unidades';
 }
 
+// Complementos disponíveis
+export interface ComplementosOptions {
+  paoAlho: boolean;
+  queijoCoalho: boolean;
+  linguicaApimentada: boolean;
+}
+
 // Extras disponíveis
 export interface ExtraOptions {
   horaExtra: boolean;
@@ -71,6 +78,7 @@ export interface WizardFormData {
   planoCortes: CutsPlan;
   cortesPersonalizados?: CustomCutItem[];
   pontoCarne: MeatDoneness;
+  complementos: ComplementosOptions;
   
   // Passo 6
   extras: ExtraOptions;
@@ -195,4 +203,4 @@ export const MEAT_DONENESS_OPTIONS: {
 ];
 
 // Configuração do WhatsApp (altere aqui o número)
-export const WHATSAPP_NUMBER = '5511999999999'; // Formato: código país + DDD + número
+export const WHATSAPP_NUMBER = '5511969073432'; // Formato: código país + DDD + número

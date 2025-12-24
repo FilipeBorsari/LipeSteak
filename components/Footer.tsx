@@ -51,8 +51,8 @@ export default function Footer() {
             <h3 className="font-sans font-semibold mb-4">Contato</h3>
             <ul className="space-y-2 text-sm text-off-white/80">
               <li>Franco da Rocha - SP</li>
-              <li>WhatsApp: (11) 99999-9999</li>
-              <li>contato@lipesteak.com.br</li>
+              <li>WhatsApp: (11) 96907-3432</li>
+              <li>filipeborsari@gmail.com</li>
             </ul>
           </div>
         </div>

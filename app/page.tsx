@@ -162,11 +162,11 @@ export default function Home() {
           
           <Card hover={false}>
             <h3 className="font-sans font-semibold text-lg mb-2 text-charcoal">
-              Vocês fornecem equipamentos (churrasqueira, utensílios)?
+              Vocês fornecem equipamentos ?
             </h3>
             <p className="font-sans text-gray-600">
               Sim! Levamos todos os equipamentos necessários para preparar o churrasco. 
-              Você só precisa garantir o espaço e, se optar, as carnes (ou deixe conosco).
+              Você só precisa garantir a churrasqueira, a grelha e, se optar, as carnes (ou deixe conosco).
             </p>
           </Card>
           

@@ -44,6 +44,11 @@ export default function Wizard() {
     responsabilidadeCarnes: 'lipesteak-compra',
     planoCortes: 'misto',
     pontoCarne: 'ao-ponto',
+    complementos: {
+      paoAlho: false,
+      queijoCoalho: false,
+      linguicaApimentada: false,
+    },
     extras: {
       horaExtra: false,
       corteEspecial: false,
@@ -197,7 +202,7 @@ export default function Wizard() {
       case 4:
         return <Step4 formData={formData} updateFormData={updateFormData} errors={errors} />;
       case 5:
-        return <Step5 formData={formData} updateFormData={updateFormData} errors={errors} />;
+        return <Step5 formData={formData} updateFormData={updateFormData} updateNestedFormData={updateNestedFormData} errors={errors} />;
       case 6:
         return <Step6 formData={formData} updateFormData={updateFormData} updateNestedFormData={updateNestedFormData} errors={errors} />;
       default:
@@ -496,10 +501,12 @@ function Step4({
 function Step5({
   formData,
   updateFormData,
+  updateNestedFormData,
   errors,
 }: {
   formData: WizardFormData;
   updateFormData: (field: string, value: any) => void;
+  updateNestedFormData: (parent: string, field: string, value: any) => void;
   errors: Record<string, string>;
 }) {
   // Se o cliente disponibiliza as carnes, não mostra seleção de cortes mas mantém seletor de ponto
@@ -574,6 +581,52 @@ function Step5({
           )}
         </div>
       )}
+
+      {/* Complementos */}
+      <div className="pt-6 border-t-2 border-gold/20">
+        <h3 className="font-sans font-semibold text-lg mb-4 text-charcoal">Complementos</h3>
+        <p className="text-sm text-gray-600 mb-4">
+          Selecione os complementos que deseja adicionar ao churrasco
+        </p>
+        <div className="space-y-3">
+          <label className="flex items-start gap-3 cursor-pointer p-4 rounded-lg border-2 border-gray-200 hover:border-gold/50 transition-colors">
+            <input
+              type="checkbox"
+              checked={formData.complementos.paoAlho}
+              onChange={(e) => updateNestedFormData('complementos', 'paoAlho', e.target.checked)}
+              className="mt-1 w-5 h-5 accent-gold"
+            />
+            <div>
+              <div className="font-sans font-medium text-charcoal">Pão de Alho</div>
+              <div className="text-sm text-gray-600">Delicioso pão de alho na brasa</div>
+            </div>
+          </label>
+          <label className="flex items-start gap-3 cursor-pointer p-4 rounded-lg border-2 border-gray-200 hover:border-gold/50 transition-colors">
+            <input
+              type="checkbox"
+              checked={formData.complementos.queijoCoalho}
+              onChange={(e) => updateNestedFormData('complementos', 'queijoCoalho', e.target.checked)}
+              className="mt-1 w-5 h-5 accent-gold"
+            />
+            <div>
+              <div className="font-sans font-medium text-charcoal">Queijo Coalho</div>
+              <div className="text-sm text-gray-600">Queijo coalho grelhado no espeto</div>
+            </div>
+          </label>
+          <label className="flex items-start gap-3 cursor-pointer p-4 rounded-lg border-2 border-gray-200 hover:border-gold/50 transition-colors">
+            <input
+              type="checkbox"
+              checked={formData.complementos.linguicaApimentada}
+              onChange={(e) => updateNestedFormData('complementos', 'linguicaApimentada', e.target.checked)}
+              className="mt-1 w-5 h-5 accent-gold"
+            />
+            <div>
+              <div className="font-sans font-medium text-charcoal">Linguiça Apimentada</div>
+              <div className="text-sm text-gray-600">Linguiça artesanal com tempero especial</div>
+            </div>
+          </label>
+        </div>
+      </div>
     </div>
   );
 }

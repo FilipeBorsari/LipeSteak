@@ -41,7 +41,7 @@ export default function HistoriaPage() {
                 seleção dos cortes certos e criar uma experiência completa.
               </p>
               <p>
-                Foi em 2019 que transformei essa paixão em profissão. Comecei fazendo churrascos 
+                Foi em 2024 que transformei essa paixão em profissão. Comecei fazendo churrascos 
                 para amigos e familiares, e logo os pedidos começaram a crescer. Cada evento era 
                 uma oportunidade de aprender, aperfeiçoar e principalmente, ver o sorriso das pessoas.
               </p>
@@ -170,7 +170,7 @@ export default function HistoriaPage() {
               </h3>
               <p className="font-sans text-gray-600">
                 Se optou por carnes inclusas, fazemos a seleção e compra dos melhores cortes. 
-                Preparamos temperos especiais e organizamos todos os equipamentos.
+                Preparamos e organizamos todos os equipamentos.
               </p>
             </Card>
             
