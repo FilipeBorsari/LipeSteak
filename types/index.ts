@@ -172,25 +172,25 @@ export const MEAT_DONENESS_OPTIONS: {
     value: 'mal-passada',
     label: 'Mal Passada',
     description: 'Centro vermelho/rosado, suculenta',
-    image: '/images/ponto-mal-passada.jpg',
+    image: '/images/ponto-mal-passada.png',
   },
   {
     value: 'ao-ponto',
     label: 'Ao Ponto',
     description: 'Centro rosado claro, equilíbrio perfeito',
-    image: '/images/ponto-ao-ponto.jpg',
+    image: '/images/ponto-ao-ponto.png',
   },
   {
     value: 'bem-passada',
     label: 'Bem Passada',
     description: 'Totalmente cozida, mais firme',
-    image: '/images/ponto-bem-passada.jpg',
+    image: '/images/ponto-bem-passada.png',
   },
   {
     value: 'misto',
     label: 'Misto (Variado)',
     description: 'Diferentes pontos para agradar todos',
-    image: '/images/ponto-misto.jpg',
+    image: '/images/ponto-misto.png',
   },
 ];
 

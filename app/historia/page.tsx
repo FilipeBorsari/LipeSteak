@@ -49,7 +49,7 @@ export default function HistoriaPage() {
           </div>
           <div className="relative h-80 md:h-96 rounded-lg overflow-hidden shadow-xl">
             <Image
-              src="/images/historia-1.jpg"
+              src="/images/historia-1.jpeg"
               alt="LipeSteak - Churrasqueiro"
               fill
               className="object-cover"
@@ -60,7 +60,7 @@ export default function HistoriaPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
           <div className="order-2 md:order-1 relative h-80 md:h-96 rounded-lg overflow-hidden shadow-xl">
             <Image
-              src="/images/historia-2.jpg"
+              src="/images/historia-2.jpeg"
               alt="LipeSteak - No trabalho"
               fill
               className="object-cover"

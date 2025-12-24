@@ -433,7 +433,7 @@ function Step3({
 
       <Card className="bg-charcoal/5">
         <p className="text-sm text-charcoal font-sans">
-          <strong>Atenção:</strong> Horas extras além das 4 iniciais têm custo adicional.
+          <strong>Atenção:</strong> Horas extras além das contratadas possuem custo adicional.
         </p>
       </Card>
     </div>
@@ -502,6 +502,31 @@ function Step5({
   updateFormData: (field: string, value: any) => void;
   errors: Record<string, string>;
 }) {
+  // Se o cliente disponibiliza as carnes, não mostra seleção de cortes mas mantém seletor de ponto
+  if (formData.responsabilidadeCarnes === 'cliente-disponibiliza') {
+    return (
+      <div className="space-y-8">
+        <div className="text-center py-8">
+          <h2 className="font-serif text-3xl mb-4 text-charcoal">Seleção de cortes</h2>
+          <p className="text-gray-600 font-sans text-lg">
+            Como você irá disponibilizar as carnes, não é necessário selecionar os cortes.
+          </p>
+        </div>
+
+        {/* Seletor de ponto da carne */}
+        <div className="pt-6 border-t-2 border-gold/20">
+          <MeatDonenessSlider
+            value={formData.pontoCarne}
+            onChange={(value) => updateFormData('pontoCarne', value)}
+          />
+          {errors.pontoCarne && (
+            <p className="text-red-500 text-sm mt-2">{errors.pontoCarne}</p>
+          )}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-8">
       <div>
@@ -516,7 +541,7 @@ function Step5({
             value={plan.value}
             label={plan.label}
             description={plan.description}
-            imageSrc={`/images/cuts-${plan.value}.jpg`}
+            imageSrc={`/images/cuts-${plan.value}.png`}
             selected={formData.planoCortes === plan.value}
             onSelect={() => updateFormData('planoCortes', plan.value)}
           />
