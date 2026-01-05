@@ -92,6 +92,7 @@ export interface EstimateResult {
   observacoes: string[];
   breakdown: {
     taxaBase: number;
+    valorPorPessoa?: number;
     carnes?: number;
     consultoria?: number;
     horaExtra?: number;
