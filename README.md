@@ -1,10 +1,11 @@
 # LipeSteak - Site Oficial
 
-Site completo para a marca **LipeSteak**, especializada em churrasco premium para eventos. O site oferece uma experiência interativa para simulação de orçamentos e conversão de leads via WhatsApp.
+Site completo para a marca **LipeSteak**, especializada em churrasco premium para eventos. O site oferece uma experiência interativa com vídeo de fundo na hero section, simulação de orçamentos e conversão de leads via WhatsApp.
 
 ## 🎯 Características
 
 - **Design Premium**: Paleta elegante com off-white (#F2F0EB), preto carvão (#0F0F0F) e dourado fosco (#B89B5E)
+- **Hero Section com Vídeo**: Vídeo de fundo em loop na seção principal para maior impacto visual
 - **Totalmente Responsivo**: Mobile-first, otimizado para todos os dispositivos
 - **Wizard Interativo**: Formulário em 6 passos para simulação de orçamento
 - **Integração WhatsApp**: Geração automática de mensagem formatada
@@ -63,18 +64,28 @@ lipeSteak/
 │   ├── estimate.ts         # Lógica de cálculo de orçamento
 │   └── whatsapp.ts         # Geração de mensagem WhatsApp
 ├── public/
-│   └── images/             # Imagens (substitua os placeholders)
+│   ├── images/             # Imagens (substitua os placeholders)
+│   └── videos/             # Vídeos
+│       └── hero-background.mp4  # Vídeo de fundo da hero section
 ├── tailwind.config.ts      # Configuração do Tailwind
 ├── tsconfig.json           # Configuração TypeScript
 ├── next.config.js          # Configuração Next.js
 └── package.json            # Dependências
 ```
 
-## 🎨 Imagens Placeholder
+## 🎨 Assets Necessários
 
-As seguintes imagens precisam ser adicionadas em `/public/images/`:
+### Vídeo de Fundo (Hero Section)
+- **Arquivo**: `/public/videos/hero-background.mp4`
+- **Formato**: MP4 (H.264)
+- **Duração**: 10-30 segundos (loop)
+- **Resolução**: 1920x1080 (Full HD)
+- **Tamanho**: máximo 5-10MB (otimizado para web)
+- **Conteúdo sugerido**: Churrasco, brasa, carnes sendo preparadas, detalhes de eventos
 
-### Cortes (para o wizard)
+### Imagens
+
+#### Cortes (para o wizard)
 - `cuts-premium.jpg` - Foto de cortes premium
 - `cuts-standard.jpg` - Foto de cortes standard
 - `cuts-misto.jpg` - Foto de cortes mistos
@@ -92,13 +103,15 @@ As seguintes imagens precisam ser adicionadas em `/public/images/`:
 
 ### Galeria (8 imagens)
 - `galeria-1.jpg` a `galeria-8.jpg` - Fotos de eventos, churrascos, clientes felizes
+- **Nota**: Seção "Momentos Especiais" temporariamente oculta na página História até ter fotos suficientes
 
 **Dimensões recomendadas:**
 - Cortes: 800x600px (4:3)
 - História: 1200x900px
 - Galeria: 600x600px (quadrado)
+- Vídeo Hero: 1920x1080px (16:9)
 
-**Formato:** JPG otimizado (max 200KB cada)
+**Formato:** JPG otimizado (max 200KB cada), MP4 para vídeo
 
 ## ⚙️ Configurações Importantes
 
@@ -154,13 +167,26 @@ Edite em `/app/layout.tsx` conforme necessário.
 
 A função `computeEstimate()` em `/utils/estimate.ts` calcula:
 
-- **Taxa base**: Varia conforme duração e número de pessoas
-- **Carnes inclusas**: ~R$ 70 por pessoa (se LipeSteak compra)
-- **Consultoria**: R$ 400
-- **Hora extra**: R$ 350 por hora adicional
-- **Premium**: R$ 15 por pessoa
+### Quando Cliente Fornece a Carne ou Solicita Consultoria
+- **Valor por pessoa** (baseado na duração):
+  - 4 horas ou menos: R$ 25 por pessoa
+  - 5 horas: R$ 30 por pessoa
+  - 6 horas ou mais: R$ 35 por pessoa
 
-Faixa final: ±15% do valor total calculado
+### Quando LipeSteak Compra as Carnes
+- **Taxa base**: Varia conforme duração e número de pessoas
+  - Até 30 pessoas: R$ 400/hora
+  - 31-60 pessoas: R$ 550/hora
+  - 61-90 pessoas: R$ 700/hora
+  - Acima de 90: R$ 850/hora
+
+### Valores Adicionais
+- **Carnes inclusas**: R$ 70 por pessoa (quando LipeSteak compra)
+- **Consultoria**: R$ 200
+- **Hora extra**: R$ 350 por hora adicional (após 4h)
+- **Premium** (cortes especiais): R$ 15 por pessoa
+
+**Faixa final**: ±15% do valor total calculado (mínimo = 85%, máximo = 115%)
 
 ## 🔧 Personalização
 
@@ -197,18 +223,13 @@ npm start
 - Netlify
 - AWS Amplify
 
-## 📝 Checklist Pré-Lançamento
-
-- [ ] Substituir imagens placeholder por fotos reais
-- [ ] Configurar número de WhatsApp correto
-- [ ] Testar formulário completo em mobile
-- [ ] Testar envio para WhatsApp
-- [ ] Validar todas as páginas (Home, História)
-- [ ] Configurar domínio personalizado
-- [ ] Configurar analytics (Google Analytics, etc.)
-- [ ] Testar acessibilidade com leitor de tela
-
 ## 🐛 Troubleshooting
+
+### Vídeo não aparece ou não toca
+- Certifique-se de que o vídeo está em `/public/videos/hero-background.mp4`
+- Use formato MP4 com codec H.264
+- Vídeo deve ser otimizado para web (5-10MB máximo)
+- Em alguns navegadores mobile, vídeos só tocam em WiFi (não em dados móveis)
 
 ### Imagens não aparecem
 - Certifique-se de que as imagens estão em `/public/images/`
@@ -228,5 +249,3 @@ npm start
 Para questões técnicas ou sugestões de melhorias, entre em contato ou abra uma issue.
 
 ---
-
-**Desenvolvido com ❤️ para LipeSteak - Churrasco Premium**
