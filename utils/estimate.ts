@@ -12,16 +12,30 @@ export function computeEstimate(data: WizardFormData): EstimateResult {
   // Taxa base por duração e número de pessoas
   const duracao = data.duracao;
   const pessoas = data.numeroPessoas;
+  let valorPorPessoa = 0;
   
-  // Lógica de taxa base (aumenta com pessoas e horas)
-  if (pessoas <= 30) {
-    taxaBase = duracao * 400;
-  } else if (pessoas <= 60) {
-    taxaBase = duracao * 550;
-  } else if (pessoas <= 90) {
-    taxaBase = duracao * 700;
+  // Lógica de taxa base
+  // Se cliente fornece a carne ou quer consultoria, cobra baseado na duração
+  if (data.responsabilidadeCarnes === 'cliente-disponibiliza' || data.responsabilidadeCarnes === 'consultoria') {
+    if (duracao <= 4) {
+      valorPorPessoa = 25;
+    } else if (duracao === 5) {
+      valorPorPessoa = 30;
+    } else { // 6 horas ou mais
+      valorPorPessoa = 35;
+    }
+    taxaBase = pessoas * valorPorPessoa;
   } else {
-    taxaBase = duracao * 850;
+    // Aumenta com pessoas e horas
+    if (pessoas <= 30) {
+      taxaBase = duracao * 400;
+    } else if (pessoas <= 60) {
+      taxaBase = duracao * 550;
+    } else if (pessoas <= 90) {
+      taxaBase = duracao * 700;
+    } else {
+      taxaBase = duracao * 850;
+    }
   }
   
   // Hora extra (se duração > 4h base)
@@ -45,7 +59,7 @@ export function computeEstimate(data: WizardFormData): EstimateResult {
     data.responsabilidadeCarnes === 'consultoria' ||
     data.extras.consultoria
   ) {
-    consultoria = 400;
+    consultoria = 200;
     observacoes.push('Consultoria de compra incluída');
   }
   
@@ -60,8 +74,9 @@ export function computeEstimate(data: WizardFormData): EstimateResult {
     observacoes.push('Sugestão de harmonização com bebidas');
   }
   
-  // Cliente disponibiliza carnes - aviso
-  if (data.responsabilidadeCarnes === 'cliente-disponibiliza') {
+  // Cliente disponibiliza carnes ou consultoria - aviso
+  if (data.responsabilidadeCarnes === 'cliente-disponibiliza' || data.responsabilidadeCarnes === 'consultoria') {
+    observacoes.push('Cobramos o valor fixo por pessoa de acordo com a quantidade de horas de evento. R$ 25,00 para 4 horas, R$ 30,00 para 5 horas e R$ 35,00 para 6 horas');
     observacoes.push('Preço pode variar conforme qualidade e quantidade das carnes fornecidas');
   }
   
@@ -73,7 +88,7 @@ export function computeEstimate(data: WizardFormData): EstimateResult {
   const valorMaximo = Math.round(total * 1.15);
   
   observacoes.push('Valor final pode variar conforme local, cardápio e detalhes do evento');
-  observacoes.push('Orçamento final será ajustado após conversa detalhada');
+  observacoes.push('Orçamento final será ajustado após conversa detalhada no whatsapp');
   
   return {
     valorMinimo,
@@ -81,6 +96,7 @@ export function computeEstimate(data: WizardFormData): EstimateResult {
     observacoes,
     breakdown: {
       taxaBase,
+      valorPorPessoa: valorPorPessoa > 0 ? valorPorPessoa : undefined,
       carnes: carnes > 0 ? carnes : undefined,
       consultoria: consultoria > 0 ? consultoria : undefined,
       horaExtra: horaExtra > 0 ? horaExtra : undefined,
