@@ -187,7 +187,7 @@ export default function HistoriaPage() {
         </div>
       </Section>
 
-      {/* Galeria Placeholder */}
+      {/* Galeria Placeholder - Temporariamente removido, aguardando fotos suficientes
       <Section background="default">
         <div className="text-center mb-12">
           <h2 className="font-serif text-3xl md:text-4xl mb-4 text-charcoal">
@@ -209,6 +209,7 @@ export default function HistoriaPage() {
           ))}
         </div>
       </Section>
+      */}
 
       {/* CTA */}
       <Section background="dark" className="text-center">
