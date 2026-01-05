@@ -12,30 +12,50 @@ export default function Home() {
       <Header />
       
       {/* Hero Section */}
-      <Section id="hero" className="pt-20 pb-16 md:pt-32 md:pb-24">
-        <div className="text-center max-w-4xl mx-auto">
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-6 text-charcoal leading-tight">
-            Experiência de churrasco para momentos especiais
-          </h1>
-          <div className="w-24 h-1 bg-gold mx-auto mb-6"></div>
-          <p className="font-sans text-lg md:text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
-            Transforme seu evento em uma experiência gastronômica inesquecível. 
-            Aniversários, chás revelação, casamentos e confraternizações com o toque premium do LipeSteak.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="#orcamento">
-              <Button size="lg" variant="primary">
-                Simular Orçamento
-              </Button>
-            </Link>
-            <Link href="/historia">
-              <Button size="lg" variant="outline">
-                Conheça Nossa História
-              </Button>
-            </Link>
+      <section id="hero" className="relative pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 w-full h-full z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src="/videos/hero-background.mp4" type="video/mp4" />
+          </video>
+          {/* Overlay escuro para legibilidade do texto */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60"></div>
+        </div>
+        
+        {/* Content */}
+        <div className="relative z-10 max-w-6xl mx-auto px-4">
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-6 text-white leading-tight" 
+                style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.6)' }}>
+              Experiência de churrasco para momentos especiais
+            </h1>
+            <div className="w-24 h-1 bg-gold mx-auto mb-6 shadow-lg"></div>
+            <p className="font-sans text-lg md:text-xl text-white mb-8 max-w-2xl mx-auto font-medium"
+               style={{ textShadow: '1px 1px 6px rgba(0,0,0,0.9), 0 0 15px rgba(0,0,0,0.7)' }}>
+              Transforme seu evento em uma experiência gastronômica inesquecível. 
+              Aniversários, chás revelação, casamentos e confraternizações com o toque premium do LipeSteak.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="#orcamento">
+                <Button size="lg" variant="primary" className="shadow-xl hover:scale-105 hover:shadow-2xl">
+                  Simular Orçamento
+                </Button>
+              </Link>
+              <Link href="/historia">
+                <Button size="lg" variant="outline" className="!border-white/70 !text-white/90 hover:!bg-white/10 hover:!border-white shadow-md">
+                  Conheça Minha História
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
-      </Section>
+      </section>
 
       {/* Benefícios */}
       <Section id="servicos" background="white">
@@ -165,8 +185,8 @@ export default function Home() {
               Vocês fornecem equipamentos ?
             </h3>
             <p className="font-sans text-gray-600">
-              Sim! Levamos todos os equipamentos necessários para preparar o churrasco. 
-              Você só precisa garantir a churrasqueira, a grelha e, se optar, as carnes (ou deixe conosco).
+              Nós levamos todos os equipamentos para preparar o churrasco. 
+              Você só precisa garantir a churrasqueira e a grelha — as carnes ficam por sua conta ou com a nossa equipe, como preferir.
             </p>
           </Card>
           
